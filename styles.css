@@ -141,3 +141,46 @@ nav a {
     text-decoration: none;
     display: block;
 }
+nav h1 [class*="fa-"]{
+    font-size: 100%;
+    padding: 0.5rem;
+}
+.button{
+    background-color: var(--magenta);
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+.button:hover{
+    color: var(--white);
+    background-color: var(--hotmag);
+}
+
+@media (min-width: 850px) {
+    nav {
+        max-width: 1200px;
+        margin: 0 auto;
+
+    }
+    nav li:first-child{
+        flex-basis: auto;
+        text-align: left;
+        margin-right: auto;
+    }
+
+}
+#footer{
+    text-align: center;
+    width: 500px;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+#footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
