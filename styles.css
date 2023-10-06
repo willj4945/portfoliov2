@@ -1,12 +1,13 @@
 /* variables declared here - these are the colors for our pages, as well as the font stacks and sizes. */
 :root {
-    --black: #171321;
+    --black: #171322;
     --dkblue: #0d314b;
-    --plum: #4b0d49;
+    --plum: #4b0d50;
     --hotmag: #ff17e4;
     --magenta: #e310cb;
     --aqua: #86fbfb;
     --white: #f7f8fa;
+    --testbackground: #171322;
     --Deep-Teal-Sea-1-hex: #012e40;
     --Deep-Teal-Sea-2-hex: #024959;
     --Deep-Teal-Sea-3-hex: #026773;
@@ -34,18 +35,109 @@ body {
     padding: 0;
     margin: 0;
     font-family: var(--sans);
-    background-color: var(--Deep-Teal-Sea-1-hex);
+    background-color: var(--black);
     color: #f2e3d5;
     font-size: var(--font-size);
 }
-h1,h2,h3{
+
+h1, h2, h3 {
     margin: 0;
 }
-a{
+
+a {
     color: var(--Deep-Teal-Sea-3-hex);
 }
-a:hover{
+
+a:hover {
     color: var(--Deep-Teal-Sea-4-hex);
     text-decoration: none;
 
+}
+
+#intro {
+    padding-bottom: 10rem;
+}
+
+#intro p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#intro .name {
+    font-family: var(--mono);
+}
+
+.name-span {
+    font-family: var(--sans);
+    font-size: 4rem;
+    color: var(--Deep-Teal-Sea-4-hex);
+    display: block;
+
+}
+
+#intro h2 {
+    font-size: 4rem;
+    font-weight: normal;
+
+}
+
+#contact-me {
+    background-color: var(--plum);
+    text-align: center;
+    width: 400px;
+    margin: 0 auto;
+    padding: 3rem 0;
+
+}
+
+#contact-me h2 {
+    font-weight: normal;
+
+}
+
+#contact-me p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.email {
+    color: var(--Deep-Teal-Sea-4-hex);
+    margin-top: 3rem;
+
+
+}
+
+nav {
+    font-family: var(--mono);
+    font-size: 80%;
+    padding: 1rem;
+}
+
+nav h1 a {
+    font-family: var(--sans);
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+nav li:first-child{
+    flex-basis: 100%;
+    text-align: center;
+
+}
+
+nav [class*="fa-"]{
+    font-size: 150%;
+}
+
+nav a {
+    color: var(--Deep-Teal-Sea-5-hex);
+    text-decoration: none;
+    display: block;
 }
