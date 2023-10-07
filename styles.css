@@ -55,8 +55,14 @@ a:hover {
 
 }
 
+.section-background-color{
+    background-color: var(--Deep-Teal-Sea-2-hex);
+}
+
 #intro {
-    padding-bottom: 10rem;
+    padding: 4rem 1rem 10rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 #intro p {
@@ -83,7 +89,6 @@ a:hover {
 }
 
 #contact-me {
-    background-color: var(--Deep-Teal-Sea-2-hex);
     width: 400px;
     text-align: center;
     margin: 0 auto;
@@ -103,11 +108,7 @@ a:hover {
     line-height: 1.5;
 }
 
-.email {
-    margin-top: 2rem;
 
-
-}
 
 nav {
     font-family: var(--mono);
