@@ -45,7 +45,8 @@ h1, h2, h3 {
 }
 
 a {
-    color: var(--Deep-Teal-Sea-3-hex);
+    color: var(--Deep-Teal-Sea-5-hex);
+
 }
 
 a:hover {
@@ -82,16 +83,18 @@ a:hover {
 }
 
 #contact-me {
-    background-color: var(--plum);
-    text-align: center;
+    background-color: var(--Deep-Teal-Sea-2-hex);
     width: 400px;
+    text-align: center;
     margin: 0 auto;
     padding: 3rem 0;
+
 
 }
 
 #contact-me h2 {
     font-weight: normal;
+
 
 }
 
@@ -101,8 +104,7 @@ a:hover {
 }
 
 .email {
-    color: var(--Deep-Teal-Sea-4-hex);
-    margin-top: 3rem;
+    margin-top: 2rem;
 
 
 }
@@ -116,6 +118,7 @@ nav {
 nav h1 a {
     font-family: var(--sans);
 }
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -126,13 +129,14 @@ nav ul {
     align-items: center;
     gap: 2rem;
 }
-nav li:first-child{
+
+nav li:first-child {
     flex-basis: 100%;
     text-align: center;
 
 }
 
-nav [class*="fa-"]{
+nav [class*="fa-"] {
     font-size: 150%;
 }
 
@@ -141,18 +145,21 @@ nav a {
     text-decoration: none;
     display: block;
 }
-nav h1 [class*="fa-"]{
+
+nav h1 [class*="fa-"] {
     font-size: 100%;
     padding: 0.5rem;
 }
-.button{
-    background-color: var(--magenta);
+
+.button {
+    background-color: var(--Deep-Teal-Sea-2-hex);
     padding: 0.5rem;
     border-radius: 5px;
 }
-.button:hover{
+
+.button:hover {
     color: var(--white);
-    background-color: var(--hotmag);
+    background-color: var(--Deep-Teal-Sea-4-hex);
 }
 
 @media (min-width: 850px) {
@@ -161,26 +168,27 @@ nav h1 [class*="fa-"]{
         margin: 0 auto;
 
     }
-    nav li:first-child{
+
+    nav li:first-child {
         flex-basis: auto;
         text-align: left;
         margin-right: auto;
     }
 
 }
-#footer{
+
+footer {
     text-align: center;
-    width: 500px;
-    margin: 0 auto;
-    padding: 3rem 0;
 }
-#footer ul {
+
+footer ul {
+
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin: 2rem 0;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    align-items: center;
-    gap: 2rem;
+    gap: 3rem;
+    font-size: 3rem;
 }
