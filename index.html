@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <script src="https://kit.fontawesome.com/097cd77548.js" crossorigin="anonymous"></script>
     <title>Will Johnson's Portfolio</title>
 </head>
@@ -25,8 +27,11 @@
 </script>
 
 <body>
-<nav>
-    <ul>
+<nav aria-label="Main navigation">
+    <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle menu">
+        <span class="fa-solid fa-bars" aria-hidden="true"></span>
+    </button>
+    <ul id="main-nav">
         <li>
             <h1><a href="index.html"><span class="fa-solid fa-code" aria-hidden="true"></span><span>Will Johnson</span></a>
             </h1>
@@ -34,16 +39,18 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="about.html" target="_blank">About</a></li>
         <li><a href="#contact-me">Contact</a></li>
-        <li><a href="https://www.linkedin.com/in/will-johnson-4a0b2b224/" target="_blank"><i
+        <li><a href="https://www.linkedin.com/in/will-johnson-4a0b2b224/" target="_blank" rel="noopener noreferrer"><i
                 class="fa-brands fa-linkedin"
                 aria-hidden="true"></i><span
                 class="sr-only">LinkedIn</span></a>
         </li>
-        <li><a href="https://github.com/willj4945" target="_blank"><i class="fa-brands fa-github"
+        <li><a href="https://github.com/willj4945" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"
                                                                       aria-hidden="true"></i><span
                 class="sr-only">GitHub</span></a></li>
-        <li><a class="button" href="">Resume</a></li>
-
+        <li><a class="button" href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+        <li>
+            <button id="theme-toggle" class="button" title="Change theme">Theme</button>
+        </li>
 
     </ul>
 </nav>
@@ -53,12 +60,12 @@
 
     <p class="name">Hi, my name is <span class="name-span"> Will </span></p>
 
-    <h2>I develop and secure the web.</h2>
+    <h2>Security automation & DevSecOps.</h2>
 
-    <p>As a passionate programmer and skilled web hacker, I am dedicated to strengthening application security through innovative solutions and rigorous testing.</p>
+    <p>I’m a security engineer who builds tooling to make security practical and repeatable — automation, compliance-as-code, and small utilities (mostly Python) that solve real problems. I also work on Windows privacy tools, PowerShell automation, and low-level security experimentation.</p>
 
-    <p>Currently, I'm at the USCG as an <a
-            href="https://csrc.nist.gov/glossary/term/Information_Systems_Security_Engineer_Engineering" target="_blank">ISSE</a>.</p>
+    <p>I keep a lab notebook called <a href="https://willj4945.github.io/ramblings/" target="_blank" rel="noopener noreferrer">Ramblings</a> where I share ideas, projects, and short write-ups.</p>
+
 </section>
 <div class="gradient"></div>
 
@@ -141,13 +148,13 @@
     <h2>Will Johnson &middot; Web Security Researcher</h2>
     <ul>
         <li>
-            <a href="https://www.linkedin.com/in/will-johnson-4a0b2b224/" target="_blank">
+            <a href="https://www.linkedin.com/in/will-johnson-4a0b2b224/" target="_blank" rel="noopener noreferrer">
                 <span class="fab fa-linkedin" aria-hidden="true"></span>
                 <span class="sr-only">LinkedIn</span>
             </a>
         </li>
         <li>
-            <a href="https://github.com/willj4945" target="_blank">
+            <a href="https://github.com/willj4945" target="_blank" rel="noopener noreferrer">
                 <span class="fab fa-github-square" aria-hidden="true"></span>
                 <span class="sr-only">Github</span>
             </a>

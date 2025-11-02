@@ -1,27 +1,26 @@
 /* variables declared here - these are the colors for our pages, as well as the font stacks and sizes. */
 :root {
-    --black: #171322;
+    /* Palette */
+    --black: #0b0a0f;
     --dkblue: #0d314b;
     --plum: #4b0d50;
-    --hotmag: #ff17e4;
-    --magenta: #e310cb;
     --aqua: #86fbfb;
-    --white: #f7f8fa;
-    --testbackground: #171322;
-    --Deep-Teal-Sea-1-hex: #012e40;
-    --Deep-Teal-Sea-2-hex: #024959;
-    --Deep-Teal-Sea-3-hex: #026773;
-    --Deep-Teal-Sea-4-hex: #3ca6a6;
-    --Deep-Teal-Sea-5-hex: #f2e3d5;
+    --muted: #bfc9c8;
+    --accent: #3ca6a6;
+    --paper: #f2e3d5;
 
-    --font-size: 1.3rem;
-    --mono: "Oxygen mono", monospace;
-    --sans: Oxygen, sans-serif;
+    /* Typography & layout */
+    --font-size: 1.125rem; /* base */
+    --mono: 'Fira Mono', monospace;
+    --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, "Helvetica Neue", Arial;
+    --max-width: 1200px;
+    --radius: 12px;
 }
 
 /* border box model: https://css-tricks.com/box-sizing/ */
 html {
     box-sizing: border-box;
+    font-synthesis: none;
 }
 
 *,
@@ -36,31 +35,34 @@ body {
     margin: 0;
     font-family: var(--sans);
     background-color: var(--black);
-    color: #f2e3d5;
+    color: var(--paper);
     font-size: var(--font-size);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3 h4 {
+h1, h2, h3, h4 {
     margin: 0;
 }
 
 a {
-    color: var(--Deep-Teal-Sea-5-hex);
-
+    color: var(--paper);
 }
 
 a:hover {
-    color: var(--Deep-Teal-Sea-4-hex);
+    color: var(--accent);
     text-decoration: none;
-
 }
 
 img {
-    width: 90%;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
 }
 
 .section-background-color {
-    background-color: var(--Deep-Teal-Sea-2-hex);
+    background-color: #013b47;
 }
 
 .section-blue {
@@ -74,8 +76,8 @@ img {
 }
 
 #intro {
-    padding: 4rem 1rem 10rem 1rem;
-    max-width: 1200px;
+    padding: 4rem 1rem 8rem 1rem;
+    max-width: var(--max-width);
     margin: 0 auto;
 }
 
@@ -90,16 +92,16 @@ img {
 
 .name-span {
     font-family: var(--sans);
-    font-size: 4rem;
-    color: var(--Deep-Teal-Sea-4-hex);
+    font-size: 3.25rem;
+    color: var(--accent);
     display: block;
-
 }
 
 #intro h2 {
-    font-size: 4rem;
-    font-weight: normal;
-
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-top: .5rem;
+    color: var(--paper);
 }
 
 #contact-me {
@@ -125,23 +127,33 @@ img {
 
 nav {
     font-family: var(--mono);
-    font-size: 80%;
-    padding: 4rem 1rem;
+    font-size: 90%;
+    padding: 1.25rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    backdrop-filter: blur(6px);
+    background: linear-gradient(180deg, rgba(11,10,15,0.6), rgba(11,10,15,0.45));
+    box-shadow: 0 6px 18px rgba(2,8,12,0.6);
 }
 
 nav h1 a {
     font-family: var(--sans);
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
+    max-width: var(--max-width);
 }
 
 nav li:first-child {
@@ -166,28 +178,31 @@ nav h1 [class*="fa-"] {
 }
 
 .button {
-    background-color: var(--black);
+    background: linear-gradient(90deg, var(--accent), #2b9ea9);
     color: white;
-    padding: 0.5rem;
-    border-radius: 5px;
+    padding: .5rem .85rem;
+    border-radius: 8px;
     text-decoration: none;
     font-family: var(--mono);
+    font-weight: 600;
+    transition: transform .18s ease, box-shadow .18s ease;
+    box-shadow: 0 6px 14px rgba(44,150,150,0.12);
 }
 
 .button:hover {
-    color: white;
-    background-color: var(--Deep-Teal-Sea-4-hex);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(44,150,150,0.16);
 }
 
 #projects {
-    padding: 4rem 1rem;
-    max-width: 1200px;
+    padding: 3rem 1rem;
+    max-width: var(--max-width);
     margin: 0 auto;
 }
 
 #projects h2 {
-    font-size: 2.5rem;
-    margin-bottom: calc(2.5rem * 1.5);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 #projects h3 {
@@ -211,65 +226,119 @@ nav h1 [class*="fa-"] {
     font-size: 1rem;
 }
 
-#projects img {
-    margin: 2rem 0 4rem 0;
-    border-left: 1px solid var(--aqua);
-    border-top: 1px solid var(--aqua);
-    border-radius: 25px;
-    padding: 1rem;
-
+#projects .project-card img {
+    margin: 0;
+    border-radius: 14px;
 }
 
-.black-box {
-    background-color: var(--black);
-    padding: 1rem;
-    border-radius: 10px;
-    color: var(--Deep-Teal-Sea-5-hex);
-    font-size: 1rem;
+/* Ensure lists inside project cards render as vertical lists (override #projects ul flex layout) */
+/* Lists inside project cards: force a vertical bulleted list and spacing. */
+#projects .project-card .text ul {
+    display: block;
+    list-style-type: disc;
+    margin: .75rem 0 1rem 1.25rem;
+    padding: 0;
+}
+
+#projects .project-card .text ul li {
+    margin: 0.35rem 0;
     line-height: 1.5;
 }
 
-@media (min-width: 550px) {
+@media (min-width: 600px) {
     article {
-        display: grid;
-        grid-template-columns: repeat(10, 1fr);
-        gap: 1rem;
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        padding: 2rem;
+        background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+        border-radius: var(--radius);
+        margin-bottom: 1.5rem;
     }
 
-    #projects img {
-        grid-column: 1/6;
-        grid-row: 1/2;
+    .project-card {
+        display: flex;
+        gap: 1.5rem;
+        width: 100%;
+        align-items: center;
     }
 
-    .text {
-        grid-column: 5/11;
-        order: 2;
-        text-align: right;
-        grid-row: 1/2;
+    .project-card .text {
+        flex: 1 1 48%;
+        text-align: left;
+    }
 
+    .project-card img {
+        flex: 0 0 48%;
+        max-width: 48%;
     }
 
     #projects ul {
-        justify-content: end;
+        justify-content: flex-end;
+    }
+}
+
+/* Mobile nav and menu toggle */
+.menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+    color: var(--paper);
+    font-size: 1.25rem;
+    padding: .25rem .5rem;
+    cursor: pointer;
+}
+
+nav ul {
+    transition: max-height .28s ease, opacity .28s ease;
+}
+
+/* collapsed by default on small screens */
+@media (max-width: 849px) {
+    nav ul {
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        text-align: center;
     }
 
-    #projects .middle-project .text {
-        grid-column: 1/7;
-        order: 2;
-        text-align: left;
-        grid-row: 1/2;
-
-
+    nav ul.open {
+        max-height: 400px;
+        opacity: 1;
     }
 
-    #projects .middle-project img {
-        grid-column: 6/11;
+    nav li {
+        margin: .5rem 0;
     }
 
-    #projects .middle-project ul {
-        justify-content: flex-start;
+    nav li:first-child {
+        text-align: center;
+        margin-bottom: .5rem;
     }
+}
 
+/* Theme variants: default uses existing variables; alternate themes override colors */
+.theme-alt1 {
+    --black: #071014;
+    --dkblue: #082a3a;
+    --plum: #34264a;
+    --aqua: #7ae6e6;
+    --muted: #d9e7e6;
+    --accent: #ff8a00;
+    --paper: #f5f7f6;
+}
+
+.theme-alt2 {
+    --black: #0f0b18;
+    --dkblue: #1b2740;
+    --plum: #2b1531;
+    --aqua: #9be7ff;
+    --muted: #e6eef6;
+    --accent: #d64b8a;
+    --paper: #fcf8ff;
 }
 
 @media (min-width: 850px) {
@@ -290,6 +359,7 @@ nav h1 [class*="fa-"] {
 footer {
     text-align: center;
     padding-top: 3rem;
+    color: var(--muted);
 }
 
 footer ul {
