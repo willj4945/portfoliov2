@@ -1,0 +1,38 @@
+# JetBrains IDEs (.idea/ is already tracked — add it here to stop future tracking)
+.idea/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# VS Code
+.vscode/
+
+# Editor swap/backup files
+*.swp
+*.swo
+*~
+
+# Secrets and credentials (never commit these)
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Node (if you ever add a build step)
+node_modules/
+npm-debug.log*
+
+# Local test/scratch files
+scratch/
+*.local
