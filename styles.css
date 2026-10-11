@@ -373,3 +373,45 @@ footer ul {
     gap: 3rem;
     font-size: 3rem;
 }
+
+/* Featured project card */
+#projects article.featured {
+    border: 1px solid var(--accent);
+    box-shadow: 0 10px 30px rgba(44,150,150,0.15);
+}
+
+#projects .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+}
+
+/* One-line lists: other tools, talks */
+#projects .subhead {
+    margin-top: 2.5rem;
+}
+
+#talks {
+    padding: 3rem 1rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+#talks h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+#projects ul.other-tools,
+#talks ul.other-tools {
+    display: block;
+    list-style: disc;
+    margin: 0 0 0 1.25rem;
+    padding: 0;
+    line-height: 1.6;
+}
+
+#projects ul.other-tools li,
+#talks ul.other-tools li {
+    margin: .5rem 0;
+}

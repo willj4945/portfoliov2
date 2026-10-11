@@ -39,6 +39,7 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="about.html" target="_blank">About</a></li>
         <li><a href="#contact-me">Contact</a></li>
+        <li><a href="https://willj4945.github.io/ramblings/" target="_blank" rel="noopener noreferrer">Ramblings</a></li>
         <li><a href="https://www.linkedin.com/in/will-johnson-4a0b2b224/" target="_blank" rel="noopener noreferrer"><i
                 class="fa-brands fa-linkedin"
                 aria-hidden="true"></i><span
@@ -60,9 +61,9 @@
 
     <p class="name">Hi, my name is <span class="name-span"> Will </span></p>
 
-    <h2>Cybersecurity GRC & Compliance Automation.</h2>
+    <h2>Security engineer building software supply chain and DevSecOps tooling.</h2>
 
-    <p>I’m a cybersecurity GRC and automation engineer with 6+ years in compliance, cloud security, and DevSecOps. I build tooling that makes compliance practical and repeatable — Python automation, serverless pipelines, and security controls embedded in CI/CD workflows across NIST RMF, FISMA, and CMMC environments.</p>
+    <p>Six years in federal cybersecurity. I build tools that turn scan results into evidence: where a vulnerability came from, which control it affects, and who can fix it.</p>
 
     <p>I keep a lab notebook called <a href="https://willj4945.github.io/ramblings/" target="_blank" rel="noopener noreferrer">Ramblings</a> where I share ideas, experiments, and security write-ups.</p>
 
@@ -72,19 +73,38 @@
 <div class="section-blue">
     <section id="projects">
         <h2>Projects I'm proud of</h2>
+        <article class="featured">
+            <div class="text">
+                <h4><span class="fa-solid fa-box-open" aria-hidden="true"></span> Software Supply Chain &middot; Featured</h4>
+                <h3><a href="https://github.com/willj4945/whats_in_my_image" target="_blank" rel="noopener noreferrer">What's In My Image (wimi)</a></h3>
+                <p class="black-box">Teams often blame the base image for CVEs without evidence. wimi replaces that assumption with proof: it unpacks a container image layer by layer and traces every package and CVE to the base image or the build step that added it, matching base layers by SHA-256 digest. The output is a self-contained HTML report a CISO can read in two minutes and an engineer can act on, plus JSON and CSV.</p>
+                <h4>Highlights:</h4>
+                <ul>
+                    <li>Zero dependencies &mdash; runs air-gapped</li>
+                    <li>Trivy / Grype / Harbor import</li>
+                    <li>Signed releases with SLSA provenance &amp; SBOMs</li>
+                    <li>OpenSSF Scorecard</li>
+                    <li>CI &amp; tests</li>
+                </ul>
+                <p class="buttons">
+                    <a class="button" href="https://willj4945.github.io/whats_in_my_image/sample-report.html" target="_blank" rel="noopener noreferrer">Sample report</a>
+                    <a class="button" href="https://willj4945.github.io/whats_in_my_image/" target="_blank" rel="noopener noreferrer">Docs</a>
+                    <a class="button" href="https://github.com/willj4945/whats_in_my_image" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                </p>
+            </div>
+        </article>
+
         <article>
             <div class="text">
                 <h4><span class="fa-solid fa-cloud" aria-hidden="true"></span> Cloud Security &amp; GRC</h4>
-                <h3><a href="https://github.com/willj4945/cloudcomply" target="_blank" rel="noopener noreferrer">CloudComply</a></h3>
-                <p class="black-box">A terminal-based cloud compliance tool built in Go. CloudComply provides an interactive TUI for inspecting cloud infrastructure configurations against security frameworks like NIST and CMMC — surfacing control gaps directly in the terminal with a clean, navigable interface. Built with the Charm stack (Bubble Tea, Bubbles, Lip Gloss) and integrating AWS SDK for Go v2 for live infrastructure queries.</p>
+                <h3><a href="https://github.com/willj4945/cloudcomply" target="_blank" rel="noopener noreferrer">cloudcomply</a></h3>
+                <p class="black-box">A Go TUI that scores AWS Organizations against NIST 800-53 control families and DoD SRG impact levels (live Security Hub integration in progress). Findings can be filtered to the DoD Cloud Computing SRG impact level a Mission Owner is targeting (IL2/IL4/IL5/IL6), so they see a score for the controls actually in scope rather than the full catalog. Ships as a single static binary that drops straight into AWS CloudShell. Runs today on realistic demo data.</p>
                 <h4>Technologies used include:</h4>
                 <ul>
                     <li>Go</li>
-                    <li>Bubble Tea — TUI framework</li>
-                    <li>Bubbles — table, spinner components</li>
-                    <li>Lip Gloss — terminal styling</li>
-                    <li>AWS SDK for Go v2</li>
-                    <li>Cobra — CLI structure</li>
+                    <li>Bubble Tea &mdash; TUI framework</li>
+                    <li>Bubbles &mdash; table, spinner components</li>
+                    <li>Lip Gloss &mdash; terminal styling</li>
                 </ul>
                 <p><a class="button" href="https://github.com/willj4945/cloudcomply" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
             </div>
@@ -92,43 +112,45 @@
 
         <article>
             <div class="text">
-                <h4><span class="fa-solid fa-shield-halved" aria-hidden="true"></span> Host Security &amp; Privacy</h4>
-                <h3><a href="https://github.com/willj4945/windows_privacy" target="_blank" rel="noopener noreferrer">Windows Privacy</a></h3>
-                <p class="black-box">A collection of PowerShell scripts and tooling for hardening Windows hosts and reducing telemetry exposure — applicable to both personal privacy and enterprise endpoint security baselines. Built with STIG and CIS benchmark alignment in mind for practical host hardening at scale.</p>
+                <h4><span class="fa-solid fa-network-wired" aria-hidden="true"></span> Network Security</h4>
+                <h3><a href="https://github.com/willj4945/gopher-scan" target="_blank" rel="noopener noreferrer">gopher-scan</a></h3>
+                <p class="black-box">A concurrent TCP port scanner written in Go. A goroutine worker pool scans thousands of ports in seconds, and it accepts hostnames, IPv4/IPv6 addresses, and CIDR blocks, so a whole subnet takes a single command. Open ports are mapped to well-known service names, and thread count and connection timeout are tunable.</p>
                 <h4>Technologies used include:</h4>
                 <ul>
-                    <li>PowerShell</li>
-                    <li>Windows Security</li>
-                    <li>STIG / CIS Benchmarks</li>
-                    <li>Host Hardening</li>
+                    <li>Go</li>
+                    <li>Goroutines &amp; worker pools</li>
+                    <li>TCP networking</li>
+                    <li>Cobra &mdash; CLI structure</li>
                 </ul>
-                <p><a class="button" href="https://github.com/willj4945/windows_privacy" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+                <p><a class="button" href="https://github.com/willj4945/gopher-scan" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
             </div>
         </article>
 
-        <article>
-            <div class="text">
-                <h4><span class="fa-solid fa-book-open" aria-hidden="true"></span> Lab Notebook &amp; Write-ups</h4>
-                <h3><a href="https://willj4945.github.io/ramblings/" target="_blank" rel="noopener noreferrer">Ramblings</a></h3>
-                <p class="black-box">A personal lab notebook where I share experiments, project notes, and security write-ups — covering GRC automation, DevSecOps patterns, cloud compliance, and tooling I'm actively building. Think of it as public notes for future-me (and hopefully useful for you). Hosted on GitHub Pages.</p>
-                <h4>Technologies used include:</h4>
-                <ul>
-                    <li>Jekyll</li>
-                    <li>Markdown</li>
-                    <li>GitHub Pages</li>
-                </ul>
-                <p><a class="button" href="https://github.com/willj4945/ramblings" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
-            </div>
-        </article>
+        <h2 class="subhead">Other tools</h2>
+        <ul class="other-tools">
+            <li><a href="https://github.com/willj4945/CycloneDx-Viewer" target="_blank" rel="noopener noreferrer">CycloneDX Viewer</a> &mdash; browser-only SBOM viewer: load a CycloneDX JSON, search and sort components, export to CSV.</li>
+            <li><a href="https://github.com/willj4945/windows_privacy" target="_blank" rel="noopener noreferrer">Windows Privacy</a> &mdash; PowerShell scripts for Windows hardening and telemetry reduction.</li>
+        </ul>
     </section>
 </div>
 <div class="gradient"></div>
 
 <div class="section-background-color">
+    <section id="talks">
+        <h2>Talks &amp; Writing</h2>
+        <ul class="other-tools">
+            <li><strong>&ldquo;GRC in the Cloud&rdquo;</strong> &mdash; USCG C5ISC CAD off-site, July 2024. Talk plus hands-on training on Prowler.</li>
+            <!-- TODO: link the Ramblings post on the base-image blame problem and how wimi attributes CVEs -->
+        </ul>
+    </section>
+</div>
+<div class="gradient"></div>
+
+<div class="section-blue">
     <section id="contact-me">
         <h2>Contact me </h2>
 
-        <p>I'm always interested in connecting about GRC automation, cloud security compliance, DevSecOps, and compliance engineering. Reach out!</p>
+        <p>I&rsquo;m interested in conversations about software supply chain security, DevSecOps tooling, and building security into products.</p>
 
         <p><a class="button" href="mailto:willj4945@gmail.com">Email me</a></p>
     </section>
@@ -137,7 +159,7 @@
 
 <!-- instructions in JavaScript block -->
 <footer>
-    <h2>Will Johnson &middot; Cybersecurity GRC &amp; Automation Engineer</h2>
+    <h2>Will Johnson &middot; Security Engineer &middot; DevSecOps &amp; Supply Chain</h2>
     <ul>
         <li>
             <a href="https://www.linkedin.com/in/will-johnson-4a0b2b224/" target="_blank" rel="noopener noreferrer">
@@ -160,6 +182,7 @@
     </ul>
     <p><small>&copy; 2026 Will Johnson. All rights reserved.</small></p>
 </footer>
+<script src="script.js"></script>
 
 </body>
 </html>

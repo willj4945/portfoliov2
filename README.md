@@ -1,12 +1,12 @@
 # Will Johnson — Portfolio
 
-Personal portfolio and GitHub Pages site for Will Johnson — Cybersecurity GRC & Automation Engineer.
+Personal portfolio and GitHub Pages site for Will Johnson — Security Engineer · DevSecOps & Supply Chain.
 
 **Live site:** https://willj4945.github.io/portfoliov2/
 
 ## About
 
-Static HTML/CSS/JS portfolio showcasing work in cybersecurity GRC, compliance automation, cloud security, and DevSecOps. No build tools or frameworks — hand-crafted HTML, CSS, and vanilla JavaScript.
+Static HTML/CSS/JS portfolio showcasing work in software supply chain security, DevSecOps tooling, and cloud compliance. No build tools or frameworks — hand-crafted HTML, CSS, and vanilla JavaScript.
 
 ## Project Structure
 
