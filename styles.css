@@ -1,26 +1,82 @@
-/* variables declared here - these are the colors for our pages, as well as the font stacks and sizes. */
+/* ==========================================================================
+   Design tokens
+   Dark is the default; light applies when the OS prefers it (and the visitor
+   hasn't picked dark), or when the visitor picks light with the toggle.
+   All text/background pairs below meet WCAG AA (4.5:1) or better.
+   ========================================================================== */
 :root {
-    /* Palette */
-    --black: #0b0a0f;
-    --dkblue: #0d314b;
-    --plum: #4b0d50;
-    --aqua: #86fbfb;
-    --muted: #bfc9c8;
+    --bg: #0b0a0f;
+    --surface: #0d314b;
+    --surface-alt: #013b47;
+    --card: rgba(255, 255, 255, 0.03);
+    --text: #f2e3d5;
+    --text-muted: #bfc9c8;
+    --heading-accent: #86fbfb;
+    --link-hover: #86fbfb;
     --accent: #3ca6a6;
-    --paper: #f2e3d5;
+    --button-bg: #3ca6a6;
+    --button-text: #0b0a0f;
+    --chip-bg: rgba(60, 166, 166, 0.16);
+    --focus: #86fbfb;
+    --nav-bg: rgba(11, 10, 15, 0.85);
+    --shadow: rgba(2, 8, 12, 0.6);
 
-    /* Typography & layout */
-    --font-size: 1.125rem; /* base */
-    --mono: 'Fira Mono', monospace;
-    --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, "Helvetica Neue", Arial;
+    --mono: 'Fira Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --max-width: 1200px;
+    --measure: 68ch;
     --radius: 12px;
+
+    color-scheme: dark;
 }
 
-/* border box model: https://css-tricks.com/box-sizing/ */
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+        --bg: #f6f8f9;
+        --surface: #e6eff2;
+        --surface-alt: #dbe9ec;
+        --card: rgba(255, 255, 255, 0.7);
+        --text: #14212b;
+        --text-muted: #4a5a63;
+        --heading-accent: #0a5a63;
+        --link-hover: #0b6b75;
+        --accent: #0b6b75;
+        --button-bg: #0b6b75;
+        --button-text: #ffffff;
+        --chip-bg: rgba(11, 107, 117, 0.1);
+        --focus: #0b6b75;
+        --nav-bg: rgba(246, 248, 249, 0.9);
+        --shadow: rgba(20, 33, 43, 0.12);
+        color-scheme: light;
+    }
+}
+
+:root[data-theme="light"] {
+    --bg: #f6f8f9;
+    --surface: #e6eff2;
+    --surface-alt: #dbe9ec;
+    --card: rgba(255, 255, 255, 0.7);
+    --text: #14212b;
+    --text-muted: #4a5a63;
+    --heading-accent: #0a5a63;
+    --link-hover: #0b6b75;
+    --accent: #0b6b75;
+    --button-bg: #0b6b75;
+    --button-text: #ffffff;
+    --chip-bg: rgba(11, 107, 117, 0.1);
+    --focus: #0b6b75;
+    --nav-bg: rgba(246, 248, 249, 0.9);
+    --shadow: rgba(20, 33, 43, 0.12);
+    color-scheme: light;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
 html {
     box-sizing: border-box;
     font-synthesis: none;
+    scroll-padding-top: 5rem; /* keep anchored headings clear of the sticky nav */
 }
 
 *,
@@ -29,389 +85,524 @@ html {
     box-sizing: inherit;
 }
 
-/* Color Theme Swatches in Hex */
 body {
-    padding: 0;
     margin: 0;
     font-family: var(--sans);
-    background-color: var(--black);
-    color: var(--paper);
-    font-size: var(--font-size);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    background-color: var(--bg);
+    color: var(--text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4 {
     margin: 0;
+    line-height: 1.2;
+}
+
+p {
+    margin: 0 0 1rem;
 }
 
 a {
-    color: var(--paper);
+    color: var(--text);
+    text-underline-offset: 0.2em;
 }
 
 a:hover {
-    color: var(--accent);
-    text-decoration: none;
+    color: var(--link-hover);
+}
+
+:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 4px;
 }
 
 img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     display: block;
     border-radius: var(--radius);
 }
 
-.section-background-color {
-    background-color: #013b47;
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 100;
+    padding: .6rem 1rem;
+    background: var(--button-bg);
+    color: var(--button-text);
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+/* ==========================================================================
+   Layout helpers
+   ========================================================================== */
 .section-blue {
-    background-color: var(--dkblue);
+    background-color: var(--surface);
+}
+
+.section-background-color {
+    background-color: var(--surface-alt);
 }
 
 .gradient {
-    background: rgb(23, 19, 34);
-    background: linear-gradient(90deg, rgba(23, 19, 34, 1) 0%, rgba(60, 166, 166, 1) 100%);
     height: 2px;
+    background: linear-gradient(90deg, var(--bg) 0%, var(--accent) 100%);
 }
 
-#intro {
-    padding: 4rem 1rem 8rem 1rem;
+.container {
     max-width: var(--max-width);
     margin: 0 auto;
+    padding: 3.5rem 1rem;
 }
 
-#intro p {
-    font-size: 1rem;
-    line-height: 1.5;
+.container > h2,
+.section-title {
+    font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2rem);
+    margin-bottom: 1.5rem;
 }
 
-#intro .name {
+.eyebrow {
     font-family: var(--mono);
+    font-size: .9rem;
+    color: var(--text-muted);
+    margin: 0 0 .35rem;
 }
 
-.name-span {
-    font-family: var(--sans);
-    font-size: 3.25rem;
-    color: var(--accent);
-    display: block;
+.eyebrow [class*="fa-"] {
+    margin-right: .35rem;
 }
 
-#intro h2 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-top: .5rem;
-    color: var(--paper);
-}
-
-#contact-me {
-    width: 400px;
-    text-align: center;
-    margin: 0 auto;
-    padding: 3rem 0;
-
-
-}
-
-#contact-me h2 {
-    font-weight: normal;
-
-
-}
-
-#contact-me p {
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-
-nav {
-    font-family: var(--mono);
-    font-size: 90%;
-    padding: 1.25rem 1rem;
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+.site-header {
     position: sticky;
     top: 0;
     z-index: 40;
-    backdrop-filter: blur(6px);
-    background: linear-gradient(180deg, rgba(11,10,15,0.6), rgba(11,10,15,0.45));
-    box-shadow: 0 6px 18px rgba(2,8,12,0.6);
+    background: var(--nav-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 6px 18px var(--shadow);
 }
 
-nav h1 a {
-    font-family: var(--sans);
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0 auto;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    max-width: var(--max-width);
-}
-
-nav li:first-child {
-    flex-basis: 100%;
-    text-align: center;
-
-}
-
-nav [class*="fa-"] {
-    font-size: 150%;
-}
-
-nav a {
-    color: var(--Deep-Teal-Sea-5-hex);
-    text-decoration: none;
-    display: block;
-}
-
-nav h1 [class*="fa-"] {
-    font-size: 100%;
-    padding: 0.5rem;
-}
-
-.button {
-    background: linear-gradient(90deg, var(--accent), #2b9ea9);
-    color: white;
-    padding: .5rem .85rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-family: var(--mono);
-    font-weight: 600;
-    transition: transform .18s ease, box-shadow .18s ease;
-    box-shadow: 0 6px 14px rgba(44,150,150,0.12);
-}
-
-.button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 24px rgba(44,150,150,0.16);
-}
-
-#projects {
-    padding: 3rem 1rem;
+.site-header nav {
     max-width: var(--max-width);
     margin: 0 auto;
-}
-
-#projects h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-#projects h3 {
-    color: var(--aqua);
-}
-
-#projects h4 {
-    font-size: 1rem;
-    font-family: var(--mono);
-    margin: 0;
-}
-
-#projects ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+    padding: .9rem 1rem;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     gap: 1rem;
-    font-size: 1rem;
+    font-family: var(--mono);
+    font-size: .95rem;
 }
 
-#projects .project-card img {
-    margin: 0;
-    border-radius: 14px;
-}
-
-/* Ensure lists inside project cards render as vertical lists (override #projects ul flex layout) */
-/* Lists inside project cards: force a vertical bulleted list and spacing. */
-#projects .project-card .text ul {
-    display: block;
-    list-style-type: disc;
-    margin: .75rem 0 1rem 1.25rem;
-    padding: 0;
-}
-
-#projects .project-card .text ul li {
-    margin: 0.35rem 0;
-    line-height: 1.5;
-}
-
-@media (min-width: 600px) {
-    article {
-        display: flex;
-        gap: 2rem;
-        align-items: center;
-        padding: 2rem;
-        background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-        border-radius: var(--radius);
-        margin-bottom: 1.5rem;
-    }
-
-    .project-card {
-        display: flex;
-        gap: 1.5rem;
-        width: 100%;
-        align-items: center;
-    }
-
-    .project-card .text {
-        flex: 1 1 48%;
-        text-align: left;
-    }
-
-    .project-card img {
-        flex: 0 0 48%;
-        max-width: 48%;
-    }
-
-    #projects ul {
-        justify-content: flex-end;
-    }
-}
-
-/* Mobile nav and menu toggle */
-.menu-toggle {
+.brand {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: 0;
-    color: var(--paper);
+    gap: .6rem;
+    font-family: var(--sans);
+    font-weight: 800;
     font-size: 1.25rem;
-    padding: .25rem .5rem;
+    text-decoration: none;
+}
+
+.brand [class*="fa-"] {
+    color: var(--accent);
+}
+
+#main-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+#main-nav a:not(.button) {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px; /* comfortable touch target */
+}
+
+#main-nav a:not(.button):hover,
+#main-nav a[aria-current="page"] {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+#main-nav [class*="fa-"] {
+    font-size: 1.4rem;
+}
+
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid var(--text-muted);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 1.15rem;
     cursor: pointer;
 }
 
-nav ul {
-    transition: max-height .28s ease, opacity .28s ease;
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid var(--text-muted);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 1.1rem;
+    cursor: pointer;
 }
 
-/* collapsed by default on small screens */
+.theme-toggle:hover,
+.menu-toggle:hover {
+    border-color: var(--link-hover);
+    color: var(--link-hover);
+}
+
+/* Show the icon for the theme you'd switch TO */
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme-resolved="dark"] .theme-toggle .icon-sun { display: inline; }
+:root[data-theme-resolved="dark"] .theme-toggle .icon-moon { display: none; }
+
 @media (max-width: 849px) {
-    nav ul {
-        display: block;
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    #main-nav {
+        flex-basis: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: .25rem;
+        text-align: center;
         max-height: 0;
         overflow: hidden;
         opacity: 0;
-        text-align: center;
+        visibility: hidden; /* keeps hidden links out of the tab order */
+        transition: max-height .28s ease, opacity .28s ease, visibility 0s linear .28s;
     }
 
-    nav ul.open {
-        max-height: 400px;
+    #main-nav.open {
+        max-height: 32rem;
         opacity: 1;
+        visibility: visible;
+        transition: max-height .28s ease, opacity .28s ease, visibility 0s;
     }
 
-    nav li {
-        margin: .5rem 0;
+    #main-nav a:not(.button) {
+        justify-content: center;
     }
 
-    nav li:first-child {
-        text-align: center;
-        margin-bottom: .5rem;
+    #main-nav li {
+        display: flex;
+        justify-content: center;
     }
 }
 
-/* Theme variants: default uses existing variables; alternate themes override colors */
-.theme-alt1 {
-    --black: #071014;
-    --dkblue: #082a3a;
-    --plum: #34264a;
-    --aqua: #7ae6e6;
-    --muted: #d9e7e6;
-    --accent: #ff8a00;
-    --paper: #f5f7f6;
+/* ==========================================================================
+   Buttons & chips
+   ========================================================================== */
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    min-height: 44px;
+    padding: .55rem 1rem;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: 0;
+    border-radius: 8px;
+    font-family: var(--mono);
+    font-size: .95rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 6px 14px var(--shadow);
+    cursor: pointer;
 }
 
-.theme-alt2 {
-    --black: #0f0b18;
-    --dkblue: #1b2740;
-    --plum: #2b1531;
-    --aqua: #9be7ff;
-    --muted: #e6eef6;
-    --accent: #d64b8a;
-    --paper: #fcf8ff;
+.button:hover {
+    color: var(--button-text);
+    filter: brightness(1.08);
 }
 
-@media (min-width: 850px) {
-    nav {
-        max-width: 1200px;
-        margin: 0 auto;
-
-    }
-
-    nav li:first-child {
-        flex-basis: auto;
-        text-align: left;
-        margin-right: auto;
-    }
-
-}
-
-footer {
-    text-align: center;
-    padding-top: 3rem;
-    color: var(--muted);
-}
-
-footer ul {
-
-    list-style-type: none;
-    padding: 0;
-    margin: 2rem 0;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    gap: 3rem;
-    font-size: 3rem;
-}
-
-/* Featured project card */
-#projects article.featured {
+.button.secondary {
+    background: transparent;
+    color: var(--text);
     border: 1px solid var(--accent);
-    box-shadow: 0 10px 30px rgba(44,150,150,0.15);
+    box-shadow: none;
 }
 
-#projects .buttons {
+.button.secondary:hover {
+    color: var(--link-hover);
+    border-color: var(--link-hover);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .button {
+        transition: transform .18s ease, filter .18s ease;
+    }
+
+    .button:hover {
+        transform: translateY(-2px);
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+.buttons {
     display: flex;
     flex-wrap: wrap;
     gap: .75rem;
+    margin: 1.25rem 0 0;
 }
 
-/* One-line lists: other tools, talks */
-#projects .subhead {
-    margin-top: 2.5rem;
+.tags {
+    list-style: none;
+    margin: .5rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
 }
 
-#talks {
-    padding: 3rem 1rem;
+.tags li {
+    padding: .25rem .7rem;
+    border-radius: 999px;
+    background: var(--chip-bg);
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+    font-family: var(--mono);
+    font-size: .85rem;
+}
+
+/* ==========================================================================
+   Intro
+   ========================================================================== */
+#intro {
     max-width: var(--max-width);
     margin: 0 auto;
+    padding: clamp(3rem, 8vw, 6rem) 1rem clamp(4rem, 10vw, 8rem);
 }
 
-#talks h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+#intro h1 {
+    font-weight: 800;
 }
 
-#projects ul.other-tools,
-#talks ul.other-tools {
+.name-intro {
     display: block;
-    list-style: disc;
+    font-family: var(--mono);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-bottom: .25rem;
+}
+
+.name-span {
+    display: block;
+    font-size: clamp(2.5rem, 1.6rem + 4vw, 3.5rem);
+    color: var(--heading-accent);
+}
+
+.headline {
+    font-size: clamp(1.5rem, 1rem + 2.4vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.25;
+    max-width: 24ch;
+    margin: .75rem 0 1.5rem;
+}
+
+.lede {
+    max-width: var(--measure);
+}
+
+/* ==========================================================================
+   Project cards
+   ========================================================================== */
+.card {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: var(--card);
+    border: 1px solid color-mix(in srgb, var(--text-muted) 18%, transparent);
+    border-radius: var(--radius);
+}
+
+@media (min-width: 600px) {
+    .card {
+        padding: 2rem;
+    }
+}
+
+.card h3 {
+    font-size: clamp(1.35rem, 1.1rem + 1vw, 1.65rem);
+    margin-bottom: .75rem;
+}
+
+.card h3 a {
+    color: var(--heading-accent);
+    text-decoration: none;
+}
+
+.card h3 a:hover {
+    text-decoration: underline;
+}
+
+.card h4 {
+    font-family: var(--mono);
+    font-size: .95rem;
+    margin-top: 1.25rem;
+}
+
+.card p {
+    max-width: var(--measure);
+}
+
+.card .highlights {
+    margin: .5rem 0 0 1.25rem;
+    padding: 0;
+}
+
+.card .highlights li {
+    margin: .25rem 0;
+}
+
+.card.featured {
+    border: 1px solid var(--accent);
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.list-plain {
     margin: 0 0 0 1.25rem;
     padding: 0;
-    line-height: 1.6;
+    max-width: var(--measure);
 }
 
-#projects ul.other-tools li,
-#talks ul.other-tools li {
+.list-plain li {
     margin: .5rem 0;
+}
+
+.subhead {
+    font-size: 1.35rem;
+    margin: 2.5rem 0 1rem;
+}
+
+/* ==========================================================================
+   About page
+   ========================================================================== */
+.about-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+@media (min-width: 900px) {
+    .about-grid {
+        grid-template-columns: 3fr 2fr;
+        align-items: start;
+    }
+}
+
+.about-grid .card {
+    margin-bottom: 0;
+}
+
+.about-grid .card p {
+    max-width: none;
+}
+
+.subhead.flush {
+    margin-top: 0;
+}
+
+.toolbox dt {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: .95rem;
+    margin-top: 1rem;
+}
+
+.toolbox dt:first-child {
+    margin-top: 0;
+}
+
+.toolbox dd {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Contact
+   ========================================================================== */
+#contact-me {
+    max-width: 32rem;
+    margin: 0 auto;
+    padding: 3.5rem 1rem;
+    text-align: center;
+}
+
+#contact-me .buttons {
+    justify-content: center;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    color: var(--text-muted);
+}
+
+footer .footer-title {
+    font-weight: 600;
+    color: var(--text);
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 2rem;
+}
+
+footer a {
+    color: var(--text-muted);
 }

@@ -1,56 +1,70 @@
 document.addEventListener('DOMContentLoaded', function () {
+  const root = document.documentElement;
   const menuToggle = document.querySelector('.menu-toggle');
   const mainNav = document.getElementById('main-nav');
-  const themeToggle = document.getElementById('theme-toggle');
-  const body = document.body;
+  const themeToggle = document.querySelector('.theme-toggle');
+  const prefersLight = window.matchMedia ? window.matchMedia('(prefers-color-scheme: light)') : null;
 
-  // Mobile nav toggle
+  // ---- Mobile nav ----
+  function setMenu(open) {
+    if (!menuToggle || !mainNav) return;
+    mainNav.classList.toggle('open', open);
+    menuToggle.setAttribute('aria-expanded', String(open));
+  }
+
   if (menuToggle && mainNav) {
     menuToggle.addEventListener('click', function () {
-      const isOpen = mainNav.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      setMenu(!mainNav.classList.contains('open'));
     });
 
-    // Close menu when a nav link is clicked (mobile)
+    // Close the menu after following a link (mobile)
     mainNav.addEventListener('click', function (ev) {
-      const target = ev.target.closest('a');
-      if (!target) return;
-      if (window.innerWidth < 850) {
-        mainNav.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      }
+      if (ev.target.closest('a')) setMenu(false);
     });
   }
 
-  // Theme cycling: default -> alt1 -> alt2 -> default
-  const themes = ['', 'theme-alt1', 'theme-alt2'];
-  function applyTheme(name) {
-    // remove known theme classes
-    themes.forEach(t => { if (t) body.classList.remove(t); });
-    if (name) body.classList.add(name);
-    localStorage.setItem('site-theme', name || '');
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape' && mainNav && mainNav.classList.contains('open')) {
+      setMenu(false);
+      menuToggle.focus();
+    }
+  });
+
+  // ---- Light / dark theme ----
+  function readStored() {
+    try { return localStorage.getItem('site-theme'); } catch (e) { return null; }
   }
 
-  // Load stored theme
-  const stored = localStorage.getItem('site-theme') || '';
-  if (stored) applyTheme(stored);
+  function resolvedTheme() {
+    const explicit = root.getAttribute('data-theme');
+    if (explicit === 'light' || explicit === 'dark') return explicit;
+    return prefersLight && prefersLight.matches ? 'light' : 'dark';
+  }
+
+  function syncToggle() {
+    const current = resolvedTheme();
+    root.setAttribute('data-theme-resolved', current);
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-label', current === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+  }
 
   if (themeToggle) {
     themeToggle.addEventListener('click', function () {
-      // find index of current theme
-      const current = themes.findIndex(t => t && body.classList.contains(t));
-      const nextIndex = (current + 1) % themes.length;
-      applyTheme(themes[nextIndex]);
+      const next = resolvedTheme() === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('site-theme', next); } catch (e) { /* storage unavailable */ }
+      syncToggle();
     });
   }
 
-  // Accessibility: close nav on Escape
-  document.addEventListener('keydown', function (ev) {
-    if (ev.key === 'Escape') {
-      if (mainNav && mainNav.classList.contains('open')) {
-        mainNav.classList.remove('open');
-        menuToggle && menuToggle.setAttribute('aria-expanded', 'false');
-      }
-    }
-  });
+  // Follow OS changes when the visitor hasn't picked a theme
+  if (prefersLight && prefersLight.addEventListener) {
+    prefersLight.addEventListener('change', function () {
+      const stored = readStored();
+      if (stored !== 'light' && stored !== 'dark') syncToggle();
+    });
+  }
+
+  syncToggle();
 });
