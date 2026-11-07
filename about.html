@@ -2,110 +2,138 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About · Will Johnson</title>
+    <meta name="description" content="About Will Johnson: security engineer focused on security tooling, AWS and Terraform cloud security, and DevSecOps, with six years in federal cybersecurity.">
+    <link rel="canonical" href="https://willj4945.github.io/portfoliov2/about.html">
+
+    <!-- Link previews (LinkedIn, Slack, etc.) -->
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="Will Johnson">
+    <meta property="og:title" content="About Will Johnson · Security Engineer">
+    <meta property="og:description" content="Security tooling, cloud security (AWS, Terraform), and DevSecOps. Six years in federal cybersecurity.">
+    <meta property="og:url" content="https://willj4945.github.io/portfoliov2/about.html">
+    <meta name="twitter:card" content="summary">
+
+    <!-- Apply saved theme before first paint to avoid a flash -->
+    <script>
+        (function () {
+            var root = document.documentElement, t = null;
+            try { t = localStorage.getItem('site-theme'); } catch (e) {}
+            if (t === 'light' || t === 'dark') root.setAttribute('data-theme', t);
+            var dark = t ? t === 'dark' : !(window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches);
+            root.setAttribute('data-theme-resolved', dark ? 'dark' : 'light');
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fira+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Mono&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/097cd77548.js" crossorigin="anonymous"></script>
-    <title>About</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-319MC0X6Z5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-319MC0X6Z5');
+    </script>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-319MC0X6Z5"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-319MC0X6Z5');
-</script>
-
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<nav aria-label="Main navigation">
-    <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle menu">
-        <span class="fa-solid fa-bars" aria-hidden="true"></span>
-    </button>
-    <ul id="main-nav">
-        <li>
-            <h1><a href="index.html"><span class="fa-solid fa-code" aria-hidden="true"></span><span>Will Johnson</span></a>
-            </h1>
-        </li>
-        <li><a href="index.html#projects">Projects</a></li>
-        <li><a href="about.html" target="_blank">About</a></li>
-        <li><a href="index.html#contact-me">Contact</a></li>
-        <li><a href="https://willj4945.github.io/ramblings/" target="_blank" rel="noopener noreferrer">Ramblings</a></li>
-        <li><a href="https://www.linkedin.com/in/will-johnson-4a0b2b224/" target="_blank" rel="noopener noreferrer"><i
-                class="fa-brands fa-linkedin"
-                aria-hidden="true"></i><span
-                class="sr-only">LinkedIn</span></a>
-        </li>
-        <li><a href="https://github.com/willj4945" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"
-                                                                      aria-hidden="true"></i><span
-                class="sr-only">GitHub</span></a></li>
-        <li><a class="button" href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
-        <li>
-            <button id="theme-toggle" class="button" title="Change theme">Theme</button>
-        </li>
-
-    </ul>
-</nav>
+<header class="site-header">
+    <nav aria-label="Main">
+        <a class="brand" href="index.html"><span class="fa-solid fa-code" aria-hidden="true"></span>Will Johnson</a>
+        <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">
+            <span class="fa-solid fa-bars" aria-hidden="true"></span>
+            <span class="sr-only">Menu</span>
+        </button>
+        <ul id="main-nav">
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="about.html" aria-current="page">About</a></li>
+            <li><a href="index.html#contact-me">Contact</a></li>
+            <li><a href="https://willj4945.github.io/ramblings/">Ramblings</a></li>
+            <li><a href="https://www.linkedin.com/in/will-johnson-4a0b2b224/"><span class="fa-brands fa-linkedin" aria-hidden="true"></span><span class="sr-only">LinkedIn</span></a></li>
+            <li><a href="https://github.com/willj4945"><span class="fa-brands fa-github" aria-hidden="true"></span><span class="sr-only">GitHub</span></a></li>
+            <li><a class="button" href="resume.pdf">Resume <span class="sr-only">(PDF)</span></a></li>
+            <li>
+                <button class="theme-toggle" type="button" aria-label="Switch to light theme">
+                    <span class="fa-solid fa-moon icon-moon" aria-hidden="true"></span>
+                    <span class="fa-solid fa-sun icon-sun" aria-hidden="true"></span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+</header>
 <div class="gradient"></div>
 
-<div class="section-blue">
-    <section id="projects">
-        <h2>About Will Johnson</h2>
-        <article class="project-card">
-            <div class="text">
-                <h4>About</h4>
-                <p class="black-box">I’m Will Johnson — a cybersecurity GRC and automation engineer with 6+ years of experience in compliance, cloud security, and DevSecOps. I specialize in applying NIST RMF, FISMA, and CMMC frameworks to real-world cloud and software environments, building Python tooling and serverless pipelines that make evidence collection, control validation, and audit preparation practical at scale. I’ve led accreditation activities, partnered with engineering teams to embed security controls into CI/CD pipelines, and engineered GRC automation solutions that cut manual compliance overhead by 30%+.</p>
+<main id="main">
+    <div class="section-blue">
+        <section class="container" aria-labelledby="about-title">
+            <h1 id="about-title" class="section-title">About me</h1>
 
-                <h4>What I work on</h4>
-                <ul>
-                    <li>Cybersecurity GRC &amp; compliance automation</li>
-                    <li>NIST RMF / FISMA / CMMC evidence gathering &amp; remediation</li>
-                    <li>DevSecOps — SAST, DAST, SCA, and container security in CI/CD</li>
-                    <li>Cloud security across AWS, Azure, and GCP</li>
-                    <li>Python automation &amp; serverless architecture (AWS Lambda)</li>
-                    <li>Windows privacy &amp; host hardening tooling</li>
-                </ul>
+            <div class="about-grid">
+                <div class="card">
+                    <p>I&rsquo;m Will Johnson, a security engineer with six years in federal cybersecurity. I build security tooling, secure cloud infrastructure, and the DevSecOps pipelines that connect them.</p>
 
-                <p class="black-box">I’m also active in the DoD/federal tech community — including the DevSecOps Community of Practice and open-source contributions to the .mil GitHub ecosystem — focused on advancing cloud compliance automation and secure pipeline adoption across government environments. My lab notebook <a href="https://willj4945.github.io/ramblings/" target="_blank" rel="noopener noreferrer">Ramblings</a> is where I share experiments, GRC automation ideas, and notes that might be useful to others.</p>
+                    <p>My tools turn scanner output and cloud configuration into evidence people can act on: tracing a container CVE to the layer that introduced it, or scoring an AWS Organization against the NIST 800-53 controls actually in scope. I write them in Go and Python, and I care about the same things in my own projects that I ask of others &mdash; signed releases, SBOMs, provenance, and CI that gates on security.</p>
+
+                    <p>I came up through GRC &mdash; NIST RMF, FISMA, CMMC, and leading accreditation activities &mdash; so I know what an assessor needs and build tools that produce it. I&rsquo;ve partnered with engineering teams to embed security controls into CI/CD pipelines and automated compliance work that cut manual overhead by 30%+.</p>
+
+                    <h2 class="subhead">What I work on</h2>
+                    <ul class="list-plain">
+                        <li><strong>Security tooling</strong> &mdash; Go and Python tools for supply chain analysis, scanning, and evidence generation</li>
+                        <li><strong>Cloud security</strong> &mdash; AWS architecture and hardening, infrastructure as code with Terraform</li>
+                        <li><strong>DevSecOps</strong> &mdash; SAST, DAST, SCA, and container scanning built into CI/CD</li>
+                        <li><strong>Software supply chain</strong> &mdash; SBOMs, SLSA provenance, signed artifacts, image attribution</li>
+                        <li><strong>Compliance as code</strong> &mdash; NIST 800-53 / RMF and DoD Cloud SRG mapped to real infrastructure</li>
+                    </ul>
+
+                    <h2 class="subhead">Community</h2>
+                    <p>I&rsquo;m active in the DoD/federal tech community, including the DevSecOps Community of Practice and open-source contributions to the .mil GitHub ecosystem. My lab notebook, <a href="https://willj4945.github.io/ramblings/">Ramblings</a>, is where I share experiments and notes that might be useful to others.</p>
+
+                    <p class="buttons">
+                        <a class="button" href="index.html#projects">See my projects</a>
+                        <a class="button secondary" href="resume.pdf">Resume <span class="sr-only">(PDF)</span></a>
+                    </p>
+                </div>
+
+                <aside class="card" aria-labelledby="toolbox-title">
+                    <h2 id="toolbox-title" class="subhead flush">Toolbox</h2>
+                    <dl class="toolbox">
+                        <dt>Cloud &amp; IaC</dt>
+                        <dd>AWS (Organizations, Security Hub, Lambda, CloudShell), Terraform, Azure, GCP</dd>
+                        <dt>Languages</dt>
+                        <dd>Go, Python, PowerShell</dd>
+                        <dt>Security tooling</dt>
+                        <dd>Trivy, Grype, Harbor, Prowler, OpenSSF Scorecard</dd>
+                        <dt>Supply chain</dt>
+                        <dd>CycloneDX SBOMs, SLSA provenance, signed releases</dd>
+                        <dt>CI/CD</dt>
+                        <dd>GitHub Actions, security gates for SAST / DAST / SCA</dd>
+                        <dt>Frameworks</dt>
+                        <dd>NIST 800-53, RMF, FISMA, CMMC, DoD Cloud Computing SRG</dd>
+                    </dl>
+                </aside>
             </div>
-            <img src="images/code.jpg" alt="Image of HTML Code in an IDE."/>
-        </article>
-    </section>
-</div>
-<div class="gradient"></div>
+        </section>
+    </div>
+    <div class="gradient"></div>
+</main>
 
 <footer>
-    <h2>Will Johnson &middot; Security Engineer &middot; DevSecOps &amp; Supply Chain</h2>
+    <p class="footer-title">Will Johnson &middot; Security Engineer &middot; DevSecOps &amp; Supply Chain</p>
     <ul>
-        <li>
-            <a href="https://www.linkedin.com/in/will-johnson-4a0b2b224/" target="_blank" rel="noopener noreferrer">
-                <span class="fab fa-linkedin" aria-hidden="true"></span>
-                <span class="sr-only">LinkedIn</span>
-            </a>
-        </li>
-        <li>
-            <a href="https://github.com/willj4945" target="_blank" rel="noopener noreferrer">
-                <span class="fab fa-github-square" aria-hidden="true"></span>
-                <span class="sr-only">Github</span>
-            </a>
-        </li>
-        <li>
-            <a href="mailto:willj4945@gmail.com">
-                <span class="fas fa-envelope" aria-hidden="true"></span>
-                <span class="sr-only">Email</span>
-            </a>
-        </li>
+        <li><a href="https://www.linkedin.com/in/will-johnson-4a0b2b224/"><span class="fa-brands fa-linkedin" aria-hidden="true"></span><span class="sr-only">LinkedIn</span></a></li>
+        <li><a href="https://github.com/willj4945"><span class="fa-brands fa-github" aria-hidden="true"></span><span class="sr-only">GitHub</span></a></li>
+        <li><a href="mailto:willj4945@gmail.com"><span class="fa-solid fa-envelope" aria-hidden="true"></span><span class="sr-only">Email</span></a></li>
     </ul>
-    <p><small>&copy; 2026 Will Johnson. All rights reserved.</small></p>
+    <p><small>&copy; 2026 Will Johnson</small></p>
 </footer>
 <script src="script.js"></script>
 </body>

@@ -2,84 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Mono&display=swap" rel="stylesheet">
+    <title>Will Johnson · Security Engineer</title>
+    <meta name="description" content="Will Johnson is a security engineer building software supply chain, cloud security, and DevSecOps tooling. Six years in federal cybersecurity.">
+    <link rel="canonical" href="https://willj4945.github.io/portfoliov2/">
+
+    <!-- Link previews (LinkedIn, Slack, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Will Johnson">
+    <meta property="og:title" content="Will Johnson · Security Engineer">
+    <meta property="og:description" content="Security engineer building software supply chain, cloud security, and DevSecOps tooling.">
+    <meta property="og:url" content="https://willj4945.github.io/portfoliov2/">
+    <meta name="twitter:card" content="summary">
+
+    <!-- Apply saved theme before first paint to avoid a flash -->
+    <script>
+        (function () {
+            var root = document.documentElement, t = null;
+            try { t = localStorage.getItem('site-theme'); } catch (e) {}
+            if (t === 'light' || t === 'dark') root.setAttribute('data-theme', t);
+            var dark = t ? t === 'dark' : !(window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches);
+            root.setAttribute('data-theme-resolved', dark ? 'dark' : 'light');
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fira+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <script src="https://kit.fontawesome.com/097cd77548.js" crossorigin="anonymous"></script>
-    <title>Will Johnson's Portfolio</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-319MC0X6Z5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-319MC0X6Z5');
+    </script>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-319MC0X6Z5"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-319MC0X6Z5');
-</script>
-
 <body>
-<nav aria-label="Main navigation">
-    <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle menu">
-        <span class="fa-solid fa-bars" aria-hidden="true"></span>
-    </button>
-    <ul id="main-nav">
-        <li>
-            <h1><a href="index.html"><span class="fa-solid fa-code" aria-hidden="true"></span><span>Will Johnson</span></a>
-            </h1>
-        </li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="about.html" target="_blank">About</a></li>
-        <li><a href="#contact-me">Contact</a></li>
-        <li><a href="https://willj4945.github.io/ramblings/" target="_blank" rel="noopener noreferrer">Ramblings</a></li>
-        <li><a href="https://www.linkedin.com/in/will-johnson-4a0b2b224/" target="_blank" rel="noopener noreferrer"><i
-                class="fa-brands fa-linkedin"
-                aria-hidden="true"></i><span
-                class="sr-only">LinkedIn</span></a>
-        </li>
-        <li><a href="https://github.com/willj4945" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"
-                                                                      aria-hidden="true"></i><span
-                class="sr-only">GitHub</span></a></li>
-        <li><a class="button" href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
-        <li>
-            <button id="theme-toggle" class="button" title="Change theme">Theme</button>
-        </li>
+<a class="skip-link" href="#main">Skip to content</a>
 
-    </ul>
-</nav>
+<header class="site-header">
+    <nav aria-label="Main">
+        <a class="brand" href="index.html"><span class="fa-solid fa-code" aria-hidden="true"></span>Will Johnson</a>
+        <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">
+            <span class="fa-solid fa-bars" aria-hidden="true"></span>
+            <span class="sr-only">Menu</span>
+        </button>
+        <ul id="main-nav">
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#contact-me">Contact</a></li>
+            <li><a href="https://willj4945.github.io/ramblings/">Ramblings</a></li>
+            <li><a href="https://www.linkedin.com/in/will-johnson-4a0b2b224/"><span class="fa-brands fa-linkedin" aria-hidden="true"></span><span class="sr-only">LinkedIn</span></a></li>
+            <li><a href="https://github.com/willj4945"><span class="fa-brands fa-github" aria-hidden="true"></span><span class="sr-only">GitHub</span></a></li>
+            <li><a class="button" href="resume.pdf">Resume <span class="sr-only">(PDF)</span></a></li>
+            <li>
+                <button class="theme-toggle" type="button" aria-label="Switch to light theme">
+                    <span class="fa-solid fa-moon icon-moon" aria-hidden="true"></span>
+                    <span class="fa-solid fa-sun icon-sun" aria-hidden="true"></span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+</header>
 
+<main id="main">
+    <section id="intro">
+        <h1><span class="name-intro">Hi, my name is</span> <span class="name-span">Will Johnson</span></h1>
 
-<section id="intro">
+        <p class="headline">Security engineer building software supply chain and DevSecOps tooling.</p>
 
-    <p class="name">Hi, my name is <span class="name-span"> Will </span></p>
+        <p class="lede">Six years in federal cybersecurity. I build tools that turn scan results into evidence: where a vulnerability came from, which control it affects, and who can fix it.</p>
 
-    <h2>Security engineer building software supply chain and DevSecOps tooling.</h2>
+        <p class="lede">I keep a lab notebook called <a href="https://willj4945.github.io/ramblings/">Ramblings</a> where I share ideas, experiments, and security write-ups.</p>
 
-    <p>Six years in federal cybersecurity. I build tools that turn scan results into evidence: where a vulnerability came from, which control it affects, and who can fix it.</p>
+        <p class="buttons">
+            <a class="button" href="#projects">See my work</a>
+            <a class="button secondary" href="resume.pdf">Resume <span class="sr-only">(PDF)</span></a>
+        </p>
+    </section>
+    <div class="gradient"></div>
 
-    <p>I keep a lab notebook called <a href="https://willj4945.github.io/ramblings/" target="_blank" rel="noopener noreferrer">Ramblings</a> where I share ideas, experiments, and security write-ups.</p>
+    <div class="section-blue">
+        <section id="projects" class="container" aria-labelledby="projects-title">
+            <h2 id="projects-title">Projects I'm proud of</h2>
 
-</section>
-<div class="gradient"></div>
-
-<div class="section-blue">
-    <section id="projects">
-        <h2>Projects I'm proud of</h2>
-        <article class="featured">
-            <div class="text">
-                <h4><span class="fa-solid fa-box-open" aria-hidden="true"></span> Software Supply Chain &middot; Featured</h4>
-                <h3><a href="https://github.com/willj4945/whats_in_my_image" target="_blank" rel="noopener noreferrer">What's In My Image (wimi)</a></h3>
-                <p class="black-box">Teams often blame the base image for CVEs without evidence. wimi replaces that assumption with proof: it unpacks a container image layer by layer and traces every package and CVE to the base image or the build step that added it, matching base layers by SHA-256 digest. The output is a self-contained HTML report a CISO can read in two minutes and an engineer can act on, plus JSON and CSV.</p>
-                <h4>Highlights:</h4>
-                <ul>
+            <article class="card featured">
+                <p class="eyebrow"><span class="fa-solid fa-box-open" aria-hidden="true"></span>Software Supply Chain &middot; Featured</p>
+                <h3><a href="https://github.com/willj4945/whats_in_my_image">What's In My Image (wimi)</a></h3>
+                <p>Teams often blame the base image for CVEs without evidence. wimi replaces that assumption with proof: it unpacks a container image layer by layer and traces every package and CVE to the base image or the build step that added it, matching base layers by SHA-256 digest. The output is a self-contained HTML report a CISO can read in two minutes and an engineer can act on, plus JSON and CSV.</p>
+                <h4>Highlights</h4>
+                <ul class="highlights">
                     <li>Zero dependencies &mdash; runs air-gapped</li>
                     <li>Trivy / Grype / Harbor import</li>
                     <li>Signed releases with SLSA provenance &amp; SBOMs</li>
@@ -87,102 +105,82 @@
                     <li>CI &amp; tests</li>
                 </ul>
                 <p class="buttons">
-                    <a class="button" href="https://willj4945.github.io/whats_in_my_image/sample-report.html" target="_blank" rel="noopener noreferrer">Sample report</a>
-                    <a class="button" href="https://willj4945.github.io/whats_in_my_image/" target="_blank" rel="noopener noreferrer">Docs</a>
-                    <a class="button" href="https://github.com/willj4945/whats_in_my_image" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                    <a class="button" href="https://willj4945.github.io/whats_in_my_image/sample-report.html">Sample report</a>
+                    <a class="button secondary" href="https://willj4945.github.io/whats_in_my_image/">Docs</a>
+                    <a class="button secondary" href="https://github.com/willj4945/whats_in_my_image">View on GitHub</a>
                 </p>
-            </div>
-        </article>
+            </article>
 
-        <article>
-            <div class="text">
-                <h4><span class="fa-solid fa-cloud" aria-hidden="true"></span> Cloud Security &amp; GRC</h4>
-                <h3><a href="https://github.com/willj4945/cloudcomply" target="_blank" rel="noopener noreferrer">cloudcomply</a></h3>
-                <p class="black-box">A Go TUI that scores AWS Organizations against NIST 800-53 control families and DoD SRG impact levels (live Security Hub integration in progress). Findings can be filtered to the DoD Cloud Computing SRG impact level a Mission Owner is targeting (IL2/IL4/IL5/IL6), so they see a score for the controls actually in scope rather than the full catalog. Ships as a single static binary that drops straight into AWS CloudShell. Runs today on realistic demo data.</p>
-                <h4>Technologies used include:</h4>
-                <ul>
+            <article class="card">
+                <p class="eyebrow"><span class="fa-solid fa-cloud" aria-hidden="true"></span>Cloud Security &amp; GRC</p>
+                <h3><a href="https://github.com/willj4945/cloudcomply">cloudcomply</a></h3>
+                <p>A Go TUI that scores AWS Organizations against NIST 800-53 control families and DoD SRG impact levels (live Security Hub integration in progress). Findings can be filtered to the DoD Cloud Computing SRG impact level a Mission Owner is targeting (IL2/IL4/IL5/IL6), so they see a score for the controls actually in scope rather than the full catalog. Ships as a single static binary that drops straight into AWS CloudShell. Runs today on realistic demo data.</p>
+                <h4>Built with</h4>
+                <ul class="tags">
                     <li>Go</li>
-                    <li>Bubble Tea &mdash; TUI framework</li>
-                    <li>Bubbles &mdash; table, spinner components</li>
-                    <li>Lip Gloss &mdash; terminal styling</li>
+                    <li>Bubble Tea (TUI)</li>
+                    <li>Bubbles</li>
+                    <li>Lip Gloss</li>
                 </ul>
-                <p><a class="button" href="https://github.com/willj4945/cloudcomply" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
-            </div>
-        </article>
+                <p class="buttons"><a class="button secondary" href="https://github.com/willj4945/cloudcomply">View on GitHub</a></p>
+            </article>
 
-        <article>
-            <div class="text">
-                <h4><span class="fa-solid fa-network-wired" aria-hidden="true"></span> Network Security</h4>
-                <h3><a href="https://github.com/willj4945/gopher-scan" target="_blank" rel="noopener noreferrer">gopher-scan</a></h3>
-                <p class="black-box">A concurrent TCP port scanner written in Go. A goroutine worker pool scans thousands of ports in seconds, and it accepts hostnames, IPv4/IPv6 addresses, and CIDR blocks, so a whole subnet takes a single command. Open ports are mapped to well-known service names, and thread count and connection timeout are tunable.</p>
-                <h4>Technologies used include:</h4>
-                <ul>
+            <article class="card">
+                <p class="eyebrow"><span class="fa-solid fa-network-wired" aria-hidden="true"></span>Network Security</p>
+                <h3><a href="https://github.com/willj4945/gopher-scan">gopher-scan</a></h3>
+                <p>A concurrent TCP port scanner written in Go. A goroutine worker pool scans thousands of ports in seconds, and it accepts hostnames, IPv4/IPv6 addresses, and CIDR blocks, so a whole subnet takes a single command. Open ports are mapped to well-known service names, and thread count and connection timeout are tunable.</p>
+                <h4>Built with</h4>
+                <ul class="tags">
                     <li>Go</li>
-                    <li>Goroutines &amp; worker pools</li>
+                    <li>Goroutine worker pools</li>
                     <li>TCP networking</li>
-                    <li>Cobra &mdash; CLI structure</li>
+                    <li>Cobra (CLI)</li>
                 </ul>
-                <p><a class="button" href="https://github.com/willj4945/gopher-scan" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
-            </div>
-        </article>
+                <p class="buttons"><a class="button secondary" href="https://github.com/willj4945/gopher-scan">View on GitHub</a></p>
+            </article>
 
-        <h2 class="subhead">Other tools</h2>
-        <ul class="other-tools">
-            <li><a href="https://github.com/willj4945/CycloneDx-Viewer" target="_blank" rel="noopener noreferrer">CycloneDX Viewer</a> &mdash; browser-only SBOM viewer: load a CycloneDX JSON, search and sort components, export to CSV.</li>
-            <li><a href="https://github.com/willj4945/windows_privacy" target="_blank" rel="noopener noreferrer">Windows Privacy</a> &mdash; PowerShell scripts for Windows hardening and telemetry reduction.</li>
-        </ul>
-    </section>
-</div>
-<div class="gradient"></div>
+            <h3 class="subhead">Other tools</h3>
+            <ul class="list-plain">
+                <li><a href="https://github.com/willj4945/CycloneDx-Viewer">CycloneDX Viewer</a> &mdash; browser-only SBOM viewer: load a CycloneDX JSON, search and sort components, export to CSV.</li>
+                <li><a href="https://github.com/willj4945/windows_privacy">Windows Privacy</a> &mdash; PowerShell scripts for Windows hardening and telemetry reduction.</li>
+            </ul>
+        </section>
+    </div>
+    <div class="gradient"></div>
 
-<div class="section-background-color">
-    <section id="talks">
-        <h2>Talks &amp; Writing</h2>
-        <ul class="other-tools">
-            <li><strong>&ldquo;GRC in the Cloud&rdquo;</strong> &mdash; USCG C5ISC CAD off-site, July 2024. Talk plus hands-on training on Prowler.</li>
-            <!-- TODO: link the Ramblings post on the base-image blame problem and how wimi attributes CVEs -->
-        </ul>
-    </section>
-</div>
-<div class="gradient"></div>
+    <div class="section-background-color">
+        <section id="talks" class="container" aria-labelledby="talks-title">
+            <h2 id="talks-title">Talks &amp; Writing</h2>
+            <ul class="list-plain">
+                <li><strong>&ldquo;GRC in the Cloud&rdquo;</strong> &mdash; USCG C5ISC CAD off-site, July 2024. Talk plus hands-on training on Prowler.</li>
+                <!-- TODO: link the Ramblings post on the base-image blame problem and how wimi attributes CVEs -->
+            </ul>
+        </section>
+    </div>
+    <div class="gradient"></div>
 
-<div class="section-blue">
-    <section id="contact-me">
-        <h2>Contact me </h2>
+    <div class="section-blue">
+        <section id="contact-me" aria-labelledby="contact-title">
+            <h2 id="contact-title" class="section-title">Contact me</h2>
+            <p>I&rsquo;m interested in conversations about software supply chain security, DevSecOps tooling, and building security into products.</p>
+            <p class="buttons">
+                <a class="button" href="mailto:willj4945@gmail.com">Email me</a>
+                <a class="button secondary" href="https://www.linkedin.com/in/will-johnson-4a0b2b224/">Connect on LinkedIn</a>
+            </p>
+        </section>
+    </div>
+    <div class="gradient"></div>
+</main>
 
-        <p>I&rsquo;m interested in conversations about software supply chain security, DevSecOps tooling, and building security into products.</p>
-
-        <p><a class="button" href="mailto:willj4945@gmail.com">Email me</a></p>
-    </section>
-</div>
-<div class="gradient"></div>
-
-<!-- instructions in JavaScript block -->
 <footer>
-    <h2>Will Johnson &middot; Security Engineer &middot; DevSecOps &amp; Supply Chain</h2>
+    <p class="footer-title">Will Johnson &middot; Security Engineer &middot; DevSecOps &amp; Supply Chain</p>
     <ul>
-        <li>
-            <a href="https://www.linkedin.com/in/will-johnson-4a0b2b224/" target="_blank" rel="noopener noreferrer">
-                <span class="fab fa-linkedin" aria-hidden="true"></span>
-                <span class="sr-only">LinkedIn</span>
-            </a>
-        </li>
-        <li>
-            <a href="https://github.com/willj4945" target="_blank" rel="noopener noreferrer">
-                <span class="fab fa-github-square" aria-hidden="true"></span>
-                <span class="sr-only">Github</span>
-            </a>
-        </li>
-        <li>
-            <a href="mailto:willj4945@gmail.com">
-                <span class="fas fa-envelope" aria-hidden="true"></span>
-                <span class="sr-only">Email</span>
-            </a>
-        </li>
+        <li><a href="https://www.linkedin.com/in/will-johnson-4a0b2b224/"><span class="fa-brands fa-linkedin" aria-hidden="true"></span><span class="sr-only">LinkedIn</span></a></li>
+        <li><a href="https://github.com/willj4945"><span class="fa-brands fa-github" aria-hidden="true"></span><span class="sr-only">GitHub</span></a></li>
+        <li><a href="mailto:willj4945@gmail.com"><span class="fa-solid fa-envelope" aria-hidden="true"></span><span class="sr-only">Email</span></a></li>
     </ul>
-    <p><small>&copy; 2026 Will Johnson. All rights reserved.</small></p>
+    <p><small>&copy; 2026 Will Johnson</small></p>
 </footer>
 <script src="script.js"></script>
-
 </body>
 </html>
